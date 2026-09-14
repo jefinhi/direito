@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeferson Ribeiro | Criação de Sites Profissionais</title>
+  <meta name="description" content="Desenvolvimento de Sites Rápidos, Responsivos e Otimizados para WhatsApp e Google. Seu negócio online, mais perto dos seus clientes!">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#22c55e',
+              dark: '#16a34a',
+              light: '#4ade80',
+              bgDark: '#060c09',
+              cardDark: '#09150e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(1.05); }
+    }
+    .ambient-glow {
+      animation: pulseGlow 6s infinite ease-in-out;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #060c09;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1f3d2d;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-[#060c09] text-slate-100 font-sans selection:bg-[#22c55e] selection:text-black min-h-screen flex flex-col custom-scrollbar">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-[#060c09]/90 backdrop-blur-md border-b border-[#22c55e]/20 py-3.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#22c55e] to-[#15803d] flex items-center justify-center text-black font-black text-lg shadow-lg shadow-[#22c55e]/30 group-hover:scale-105 transition">
+          JR
+        </div>
+        <div>
+          <span class="block text-base sm:text-lg font-black tracking-tight text-white group-hover:text-[#4ade80] transition">
+            Jeferson Ribeiro
+          </span>
+          <span class="block text-[11px] text-[#4ade80] font-mono tracking-wider font-semibold">
+            DESENVOLVEDOR WEB
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
+        <a href="#inicio" class="hover:text-[#22c55e] transition">Início</a>
+        <a href="#portfolio" class="hover:text-[#22c55e] transition">Sites Criados</a>
+        <a href="#servicos" class="hover:text-[#22c55e] transition">Vantagens</a>
+        <a href="#contato" class="hover:text-[#22c55e] transition">Contato</a>
+      </nav>
+
+      <!-- Contact Button -->
+      <div class="flex items-center gap-3">
+        <a 
+          href="https://wa.me/5522981728574?text=Olá%20Jeferson!%20Vi%20seu%20site%20e%20quero%20um%20orçamento%20para%20minha%20empresa." 
+          target="_blank"
+          class="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black text-xs sm:text-sm font-black transition shadow-lg shadow-[#22c55e]/25 hover:scale-105"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>(22) 98172-8574</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION COM SITE ABERTO NO FUNDO ================= -->
+  <section id="inicio" class="relative min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden flex items-center justify-center">
+    
+    <!-- CAMADA DE FUNDO TRANSLÚCIDA: JANELA DE NAVEGADOR COM SITE ABERTO -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center">
+      <div class="relative w-[96vw] max-w-[1550px] h-[90vh] -top-2 rounded-2xl border border-[#22c55e]/25 shadow-[0_0_90px_rgba(0,0,0,0.85)] bg-[#050c08]/90 overflow-hidden flex flex-col">
+        
+        <!-- Barra do Navegador Aberto no Fundo -->
+        <div class="h-10 px-4 bg-[#08170f]/95 border-b border-[#22c55e]/25 flex items-center justify-between text-xs select-none backdrop-blur-md">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+            </div>
+            <div class="ml-2 hidden sm:flex items-center gap-2 px-3 py-1 rounded-t-xl bg-[#0e271a] border-t border-x border-[#22c55e]/30 text-slate-100 text-[11px] font-semibold">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-[#22c55e]"></i>
+              <span id="hero-tab-title">Delícias da Tati — Site Aberto</span>
+            </div>
+          </div>
+
+          <div class="flex-1 max-w-xl mx-2 sm:mx-6 flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#040a06]/90 border border-[#22c55e]/30 text-slate-400 text-[11px] font-mono shadow-inner">
+            <i data-lucide="lock" class="w-3 h-3 text-[#22c55e]"></i>
+            <span class="text-[#4ade80] font-bold">https://</span>
+            <span id="hero-url-text" class="text-slate-100 truncate">delicias-da-tati-bolos-artesanais.vercel.app</span>
+            <span class="ml-auto text-[9px] text-black font-sans font-black bg-[#22c55e] px-1.5 py-0.5 rounded shadow-sm">
+              ONLINE
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 text-[11px] text-slate-300">
+            <span class="w-2 h-2 rounded-full bg-[#22c55e] animate-ping"></span>
+            <span class="hidden md:inline font-mono text-[10px] text-slate-400">200 OK • 0.2s</span>
+          </div>
+        </div>
+
+        <!-- Conteúdo do Site Aberto com Transparência -->
+        <div class="relative flex-1 w-full overflow-hidden bg-[#050b07]">
+          <img 
+            id="hero-bg-image"
+            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&auto=format&fit=crop&q=80" 
+            alt="Site aberto no fundo" 
+            class="w-full h-full object-cover object-top filter contrast-110 brightness-90 transition-opacity duration-1000"
+          />
+          
+          <div id="hero-overlay" class="absolute inset-0 bg-gradient-to-r from-[#060c09]/88 via-[#060c09]/72 to-[#060c09]/84 transition-all duration-500"></div>
+          <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#060c09] to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#060c09] via-[#060c09]/85 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo Principal do Topo (Hero) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Coluna Esquerda -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#163323]/80 border border-[#22c55e]/40 text-[#4ade80] text-xs sm:text-sm font-semibold mb-5 shadow-[0_0_15px_rgba(34,197,94,0.15)] backdrop-blur-md">
+            <span class="text-[#22c55e] font-mono font-bold">&lt;/&gt;</span>
+            <span>Seu negócio online, mais perto dos seus clientes!</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-4">
+            Sites Modernos, Rápidos e Prontos para Gerar <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#22c55e] via-[#4ade80] to-emerald-300">Vendas no WhatsApp</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 max-w-2xl">
+            Desenvolvo websites de alto impacto para confeitarias, padarias, salões, lojas de materiais e prestadores de serviços que querem ser encontrados na internet e receber mensagens de novos clientes todo dia.
+          </p>
+
+          <!-- Vantagens Rápidas -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 w-full max-w-2xl">
+            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-[#09150e]/80 border border-[#22c55e]/30 backdrop-blur-sm">
+              <i data-lucide="zap" class="w-4 h-4 text-[#22c55e]"></i>
+              <span class="text-xs font-bold text-slate-200">Carregamento Instantâneo</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-[#09150e]/80 border border-[#22c55e]/30 backdrop-blur-sm">
+              <i data-lucide="smartphone" class="w-4 h-4 text-[#22c55e]"></i>
+              <span class="text-xs font-bold text-slate-200">100% Celular & PC</span>
+            </div>
+            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-[#09150e]/80 border border-[#22c55e]/30 backdrop-blur-sm">
+              <i data-lucide="award" class="w-4 h-4 text-[#22c55e]"></i>
+              <span class="text-xs font-bold text-slate-200">Botão WhatsApp Direto</span>
+            </div>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <a 
+              href="https://wa.me/5522981728574?text=Olá%20Jeferson!%20Quero%20um%20orçamento%20para%20criar%20o%20site%20da%20minha%20empresa." 
+              target="_blank"
+              class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-base transition shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:scale-105"
+            >
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>Falar no WhatsApp (22) 98172-8574</span>
+            </a>
+
+            <a 
+              href="#portfolio"
+              class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-[#0e271a] hover:bg-[#163825] border border-[#22c55e]/40 text-[#4ade80] hover:text-white font-bold text-sm transition"
+            >
+              <span>Ver Sites Prontos</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Controle do Site Aberto no Fundo -->
+          <div class="mt-8 w-full p-3 rounded-2xl bg-[#091810]/90 border border-[#22c55e]/30 shadow-lg backdrop-blur-md flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#22c55e] animate-ping"></span>
+              <i data-lucide="globe" class="w-4 h-4 text-[#22c55e]"></i>
+              <div>
+                <span class="text-slate-400">Site aberto no fundo:</span>
+                <span id="control-site-name" class="font-bold text-white ml-1">Delícias da Tati</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="prevHeroSite()" class="p-1.5 rounded-lg bg-[#0e2417] hover:bg-[#163323] text-white border border-[#22c55e]/30">
+                <i data-lucide="chevron-left" class="w-4 h-4"></i>
+              </button>
+              <button id="hero-pause-btn" onclick="toggleHeroAuto()" class="px-2.5 py-1 rounded-lg bg-[#0e2417] hover:bg-[#163323] text-slate-200 border border-[#22c55e]/30 font-semibold flex items-center gap-1 text-[11px]">
+                <i data-lucide="pause" class="w-3 h-3 text-amber-400"></i>
+                <span>Alternando</span>
+              </button>
+              <button onclick="nextHeroSite()" class="p-1.5 rounded-lg bg-[#0e2417] hover:bg-[#163323] text-white border border-[#22c55e]/30">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Maquete em Destaque -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <div class="relative w-full max-w-md rounded-3xl overflow-hidden border-2 border-[#22c55e]/40 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(34,197,94,0.25)] bg-[#0c1912]/90 backdrop-blur-md">
+            
+            <div class="px-4 py-3 bg-[#06110a]/90 border-b border-[#22c55e]/25 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="ml-2 text-[10px] text-slate-400 font-mono">vitrine-sites.online</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-[#163323] text-[#4ade80] text-[10px] font-semibold border border-[#22c55e]/30">
+                ● 100% Responsivo
+              </span>
+            </div>
+
+            <div class="relative aspect-[16/10] w-full overflow-hidden bg-black">
+              <img 
+                id="showcase-card-img"
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop&q=80" 
+                alt="Site em Destaque" 
+                class="w-full h-full object-cover transition-all duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#060e0a]/95 via-transparent to-black/30"></div>
+
+              <div class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#09150e]/90 border border-[#22c55e]/35 backdrop-blur-md flex items-center justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                  <span id="showcase-title" class="block text-xs font-black text-white truncate">Delícias da Tati</span>
+                  <span id="showcase-cat" class="text-[10px] text-[#4ade80]">Bolos & Confeitaria</span>
+                </div>
+                <a 
+                  id="showcase-link"
+                  href="https://delicias-da-tati-bolos-artesanais.vercel.app/" 
+                  target="_blank"
+                  class="shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#22c55e] text-black font-black text-xs hover:bg-[#1ea750] transition"
+                >
+                  <span>Abrir Site</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-3 bg-[#09150e]/95 border-t border-[#22c55e]/25 flex items-center justify-between text-[11px] text-slate-300">
+              <span id="showcase-counter">Site 1 de 6</span>
+              <div class="flex items-center gap-1">
+                <button onclick="setHeroSiteIndex(0)" class="w-2 h-2 rounded-full bg-[#22c55e]"></button>
+                <button onclick="setHeroSiteIndex(1)" class="w-2 h-2 rounded-full bg-slate-700"></button>
+                <button onclick="setHeroSiteIndex(2)" class="w-2 h-2 rounded-full bg-slate-700"></button>
+                <button onclick="setHeroSiteIndex(3)" class="w-2 h-2 rounded-full bg-slate-700"></button>
+                <button onclick="setHeroSiteIndex(4)" class="w-2 h-2 rounded-full bg-slate-700"></button>
+                <button onclick="setHeroSiteIndex(5)" class="w-2 h-2 rounded-full bg-slate-700"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO ================= -->
+  <section id="portfolio" class="py-20 bg-[#07110a] border-t border-[#22c55e]/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#163323] text-[#4ade80] text-xs font-bold border border-[#22c55e]/30 mb-3">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          <span>PROJETOS PUBLICADOS & TESTADOS</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+          Sites Reais Prontos para Testar
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Clique no botão de qualquer site abaixo para navegar e ver como ele se comporta tanto no computador quanto na tela do celular.
+        </p>
+      </div>
+
+      <!-- Grid de Sites Criados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Delícias da Tati -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&auto=format&fit=crop&q=80" alt="Delícias da Tati" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Confeitaria
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">Delícias da Tati</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Catálogo visual de bolos artesanais, doces para festas e encomendas diretas no WhatsApp.</p>
+            </div>
+            <a href="https://delicias-da-tati-bolos-artesanais.vercel.app/" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-xs transition">
+              <span>Testar Site no Ar</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Minha Padaria Artesanal -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&auto=format&fit=crop&q=80" alt="Minha Padaria Artesanal" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Panificação
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">Minha Padaria Artesanal</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Pães de fermentação natural, café colonial e cardápio de fornadas quentinhas diárias.</p>
+            </div>
+            <a href="https://padaria-artesanal-modelo.vercel.app/" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-xs transition">
+              <span>Testar Site no Ar</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Salão Bella Estética -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop&q=80" alt="Salão Bella Estética" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Beleza & Spa
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">Salão Bella Estética</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Agendamento de horários, tabela de procedimentos e galeria de transformações.</p>
+            </div>
+            <a href="https://salao-bella-estetica.vercel.app/" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-xs transition">
+              <span>Testar Site no Ar</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Casa Forte Materiais -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&auto=format&fit=crop&q=80" alt="Casa Forte Materiais" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Construção
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">Casa Forte Materiais</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Cotações instantâneas de materiais do básico ao acabamento com botão para televendas.</p>
+            </div>
+            <a href="https://casa-forte-materiais.vercel.app/" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-xs transition">
+              <span>Testar Site no Ar</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: PetShop Amor Animal -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=800&auto=format&fit=crop&q=80" alt="PetShop Amor Animal" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Pet & Veterinária
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">PetShop Amor Animal</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Banho, tosa com táxi pet, vacinas e rações com entrega rápida pelo WhatsApp.</p>
+            </div>
+            <a href="https://petshop-clinica-modelo.vercel.app/" target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-xs transition">
+              <span>Testar Site no Ar</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6: Plataforma Corporativa -->
+        <div class="rounded-2xl overflow-hidden bg-[#0a1810] border border-[#22c55e]/25 hover:border-[#22c55e]/60 transition-all hover:-translate-y-1 shadow-lg group">
+          <div class="relative aspect-video w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80" alt="Plataforma Corporativa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#4ade80] text-xs font-bold border border-[#22c55e]/40">
+              Corporativo
+            </div>
+          </div>
+          <div class="p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-lg font-black text-white group-hover:text-[#22c55e] transition">Portal Corporativo</h3>
+              <p class="text-xs text-slate-300 mt-1 mb-4">Sites institucionais para prestadores de serviço e escritórios que precisam transmitir autoridade.</p>
+            </div>
+            <a href="https://wa.me/5522981728574?text=Olá%20Jeferson!%20Gostaria%20de%20criar%20um%20site%20corporativo." target="_blank" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#163323] hover:bg-[#22c55e] text-[#4ade80] hover:text-black font-black text-xs transition border border-[#22c55e]/40">
+              <span>Solicitar Orçamento</span>
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA CONTATO ================= -->
+  <section id="contato" class="py-16 bg-[#050b07] border-t border-[#22c55e]/20 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-[#0e271a] to-[#07130c] border border-[#22c55e]/40 shadow-2xl">
+        <h2 class="text-2xl sm:text-4xl font-black text-white mb-4">
+          Vamos Tirar o Site da Sua Empresa do Papel?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
+          Entre em contato diretamente comigo pelo WhatsApp para tirar dúvidas, receber uma demonstração sem compromisso e colocar seu negócio na internet com agilidade!
+        </p>
+
+        <a 
+          href="https://wa.me/5522981728574?text=Olá%20Jeferson!%20Quero%20fazer%20meu%20site%20com%20você." 
+          target="_blank"
+          class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-base transition shadow-lg shadow-[#22c55e]/30 hover:scale-105"
+        >
+          <i data-lucide="phone-call" class="w-5 h-5"></i>
+          <span>Conversar Agora: (22) 98172-8574</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-8 bg-[#040806] border-t border-slate-900 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Jeferson Ribeiro • Desenvolvedor Web. Todos os direitos reservados.</p>
+      <p class="text-[#4ade80] font-semibold">WhatsApp: (22) 98172-8574 • Cabo Frio / RJ e Atendimento Online Brasil</p>
+    </div>
+  </footer>
+
+  <!-- ================= BOTÃO FLUTUANTE WHATSAPP ================= -->
+  <a 
+    href="https://wa.me/5522981728574?text=Olá%20Jeferson!%20Gostaria%20de%20um%20orçamento%20rápido%20para%20meu%20site." 
+    target="_blank"
+    class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-[#22c55e] hover:bg-[#1ea750] text-black font-black text-sm shadow-[0_4px_25px_rgba(34,197,94,0.5)] transition hover:scale-110"
+    title="Chamar Jeferson Ribeiro no WhatsApp"
+  >
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="hidden sm:inline">Fale Comigo</span>
+  </a>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    lucide.createIcons();
+
+    const showcaseSites = [
+      {
+        title: "Delícias da Tati",
+        category: "Bolos & Doces Artesanais",
+        url: "delicias-da-tati-bolos-artesanais.vercel.app",
+        fullUrl: "https://delicias-da-tati-bolos-artesanais.vercel.app/",
+        image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1600&auto=format&fit=crop&q=80"
+      },
+      {
+        title: "Minha Padaria Artesanal",
+        category: "Panificadora & Café Colonial",
+        url: "padaria-artesanal-modelo.vercel.app",
+        fullUrl: "https://padaria-artesanal-modelo.vercel.app/",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1600&auto=format&fit=crop&q=80"
+      },
+      {
+        title: "Salão Bella Estética",
+        category: "Beleza, Cabelo & SPA",
+        url: "salao-bella-estetica.vercel.app",
+        fullUrl: "https://salao-bella-estetica.vercel.app/",
+        image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&auto=format&fit=crop&q=80"
+      },
+      {
+        title: "Casa Forte Materiais",
+        category: "Materiais de Construção",
+        url: "casa-forte-materiais.vercel.app",
+        fullUrl: "https://casa-forte-materiais.vercel.app/",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&auto=format&fit=crop&q=80"
+      },
+      {
+        title: "PetShop Amor Animal",
+        category: "Clínica & Pet Center",
+        url: "petshop-clinica-modelo.vercel.app",
+        fullUrl: "https://petshop-clinica-modelo.vercel.app/",
+        image: "https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1600&auto=format&fit=crop&q=80"
+      },
+      {
+        title: "Portal Corporativo",
+        category: "Empresas & Negócios",
+        url: "jeferson-ribeiro-sites.vercel.app",
+        fullUrl: "https://jeferson-ribeiro-sites.vercel.app/",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&auto=format&fit=crop&q=80"
+      }
+    ];
+
+    let currentHeroIdx = 0;
+    let isAutoRotating = true;
+    let timerId = null;
+
+    function updateHeroView() {
+      const site = showcaseSites[currentHeroIdx];
+      
+      document.getElementById('hero-tab-title').textContent = site.title + ' — Site Aberto';
+      document.getElementById('hero-url-text').textContent = site.url;
+      document.getElementById('control-site-name').textContent = site.title;
+      
+      const bgImg = document.getElementById('hero-bg-image');
+      bgImg.style.opacity = '0';
+      setTimeout(() => {
+        bgImg.src = site.image;
+        bgImg.style.opacity = '1';
+      }, 250);
+
+      const cardImg = document.getElementById('showcase-card-img');
+      cardImg.src = site.image;
+      document.getElementById('showcase-title').textContent = site.title;
+      document.getElementById('showcase-cat').textContent = site.category;
+      document.getElementById('showcase-link').href = site.fullUrl;
+      document.getElementById('showcase-counter').textContent = 'Site ' + (currentHeroIdx + 1) + ' de ' + showcaseSites.length;
+    }
+
+    function nextHeroSite() {
+      currentHeroIdx = (currentHeroIdx + 1) % showcaseSites.length;
+      updateHeroView();
+    }
+
+    function prevHeroSite() {
+      currentHeroIdx = (currentHeroIdx - 1 + showcaseSites.length) % showcaseSites.length;
+      updateHeroView();
+    }
+
+    function setHeroSiteIndex(idx) {
+      currentHeroIdx = idx;
+      updateHeroView();
+    }
+
+    function toggleHeroAuto() {
+      isAutoRotating = !isAutoRotating;
+      const btn = document.getElementById('hero-pause-btn');
+      if (isAutoRotating) {
+        btn.innerHTML = '<i data-lucide="pause" class="w-3 h-3 text-amber-400"></i><span>Alternando</span>';
+        startTimer();
+      } else {
+        btn.innerHTML = '<i data-lucide="play" class="w-3 h-3 text-[#22c55e]"></i><span>Pausado</span>';
+        clearInterval(timerId);
+      }
+      lucide.createIcons();
+    }
+
+    function startTimer() {
+      clearInterval(timerId);
+      timerId = setInterval(() => {
+        if (isAutoRotating) nextHeroSite();
+      }, 4200);
+    }
+
+    startTimer();
+  </script>
+</body>
+</html>
